@@ -1,0 +1,25 @@
+{
+  "name": "taskQueue.js",
+  "main": "taskQueue.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/evitolins/taskQueue.js",
+  "authors": [
+    "Eriks Vitolins <evitolins@gmail.com>"
+  ],
+  "description": "A simple micro-utility to track the completion of javascript tasks.",
+  "keywords": [
+    "javascript",
+    "js",
+    "task",
+    "tasks",
+    "queue"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
