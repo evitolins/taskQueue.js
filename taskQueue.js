@@ -12,13 +12,10 @@ var TaskQueue = function(){
     queued : 0,
     total : 0,
 
-    /**
-     * Executed when task has been added
-     */
-    add : function (taskFunc) {
-      // Pass 'remove' method to be used as a callback.
-      if (typeof taskFunc === "function") {
-        taskFunc.call(null, this.remove);
+    // Exexcute task and pass 'remove' as callback
+    add : function (task) {
+      if (typeof task === "function") {
+        task.call(null, this.remove);
       } else return;
 
       this.queued++;
@@ -27,29 +24,23 @@ var TaskQueue = function(){
         cb.added.apply();
       }
     },
-    /**
-     * Executed when task has been completed
-     */    
+    
+    // Deincrement queue count, execute callback, and summon 
+    // completion if the queue count reaches 0.
     remove : function () {
       if (this.queued) {
         this.queued--;
-        var percent = (this.total - this.queued) / this.total * 100;
-        //console.log("taskQueue:" + this.queued + " tasks left (" + percent + "%)");
 
-        // Apply Callback
         if (typeof cb.removed === "function") {
           cb.removed.apply();
         }
-
-        // If complete, apply completion callback
         if (!this.queued) {
           this.complete();
         }
       }
     },
-    /**
-     * Executed when total queued items reaches 0
-     */
+
+    // Clear queue and task total, execute callback.
     complete : function () {
       this.total = 0;
       this.queued = 0;
