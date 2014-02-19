@@ -26,7 +26,9 @@ bower install git://github.com/evitolins/taskQueue.js
 
 ## Getting started
 
-> Live demo: http://jsbin.com/xecise/2/edit?js,console
+> Simple demo: http://jsbin.com/xecise/2/edit?js,console
+
+> Progress Bar demo: http://jsbin.com/xecise/8/edit?js,output
 
 TaskQueue expects an object containing callbacks for important events during the task queue.
 
