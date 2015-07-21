@@ -1,18 +1,16 @@
 /*
- * Instantiate TaskQueue, and define callback functions.
- * The instance is also referenced within itself, to allow access to instance
- * properties.  I'm not crazy about this approach. (ie. 'q.total' etc)
+ * Instantiate TaskQueue, and define callback functions.  This is where you
+ * would wire up a view to be driven by the TaskQueue's actions.
  */
 var q = new TaskQueue({
     add : function (queued, total) {
         var loaded = total - queued + 1;
-        console.log("add: ", loaded + "/" + total);
+        console.log("add: " + loaded + "/" + total);
     },
     remove : function (queued, total) {
         var loaded = total - queued;
         var percent = (total - queued) / total * 100;
-        console.log("remove: ", loaded + "/" + total);
-        console.log("taskQueue:" + queued + " tasks left (" + percent + "%)");
+        console.log("remove: " + loaded + "/" + total + " (" + percent + "% complete)");
     },
     complete : function () {
         console.log("completed");

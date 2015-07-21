@@ -25,9 +25,9 @@ bower install git://github.com/evitolins/taskQueue.js
 
 ## Getting started
 
-> Simple demo: http://jsbin.com/xecise/2/edit?js,console
+> Simple demo: https://jsbin.com/holeme/1/edit?js,console
 
-> Progress Bar demo: http://jsbin.com/xecise/8/edit?js,output
+> Progress Bar demo: https://jsbin.com/xecise/16/edit?js,output
 
 TaskQueue expects an object containing callbacks for important events during the task queue.
 
@@ -40,13 +40,12 @@ TaskQueue expects an object containing callbacks for important events during the
 var q = new TaskQueue({
     add : function (queued, total) {
         var loaded = total - queued + 1;
-        console.log("add: ", loaded + "/" + total);
+        console.log("add: " + loaded + "/" + total);
     },
     remove : function (queued, total) {
         var loaded = total - queued;
         var percent = (total - queued) / total * 100;
-        console.log("remove: ", loaded + "/" + total);
-        console.log("taskQueue:" + queued + " tasks left (" + percent + "%)");
+        console.log("remove: " + loaded + "/" + total + " (" + percent + "% complete)");
     },
     complete : function () {
         console.log("completed");
