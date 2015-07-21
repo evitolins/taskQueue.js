@@ -2,11 +2,15 @@
 
 <img align="right" height="200" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/list_ingredients.png">
 
-A simple micro-utility to track the completion of javascript tasks.
+A simple micro-utility to track the completion of asynchronous javascript tasks.
 
 This utility makes it easy to track the progress of multiple tasks and runs helpful callbacks based on the queue instance's status.
 
-It's important to note that all added tasks are completed asynchronously.  I hope to add an option to choose sync or async queue control in the future.
+
+> Simple demo: https://jsbin.com/holeme/1/edit?js,console
+
+> Progress Bar demo: https://jsbin.com/xecise/16/edit?js,output
+
 
 
 ## Installation
@@ -24,10 +28,6 @@ bower install git://github.com/evitolins/taskQueue.js
 ```   
 
 ## Getting started
-
-> Simple demo: https://jsbin.com/holeme/1/edit?js,console
-
-> Progress Bar demo: https://jsbin.com/xecise/16/edit?js,output
 
 TaskQueue expects an object containing callbacks for important events during the task queue.
 
