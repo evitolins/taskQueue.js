@@ -4,28 +4,36 @@
  * properties.  I'm not crazy about this approach. (ie. 'q.total' etc)
  */
 var q = new TaskQueue({
-    completed : function () {
-        console.log("taskQueueCompletedCallback");
+    add : function (queued, total) {
+        var loaded = total - queued + 1;
+        console.log("add: ", loaded + "/" + total);
     },
-    added : function () {
-        var loaded = q.total - q.queued + 1;
-        console.log("taskQueueAddCallback: " + loaded + "/" + q.total);
+    remove : function (queued, total) {
+        var loaded = total - queued;
+        var percent = (total - queued) / total * 100;
+        console.log("remove: ", loaded + "/" + total);
+        console.log("taskQueue:" + queued + " tasks left (" + percent + "%)");
     },
-    removed : function () {
-        var loaded = q.total - q.queued;
-        console.log("taskQueueRemoveCallback: " + loaded + "/" + q.total);
+    complete : function () {
+        console.log("completed");
     }
-  });
+});
 
-/*
- * Add & execute tasks.
- * These example tasks contain an artificial delay to mimic async behavior.
- * Task functions must accept a callback. Currently, the instance must be
- * passed as the 'this' value when calling the callback. (Not crazy about
- * this approach either)
+/**
+ * Creates fake tasks with random completion times, to simulate async behavior.
+ * @param  {string} label A simple label for each task to help track the results.
  */
-q.add( function (cb) { var rand = Math.floor(Math.random() * 1000); setTimeout( function () { console.log("a : " + rand/1000); cb.call(q); }, rand ); } );
-q.add( function (cb) { var rand = Math.floor(Math.random() * 1000); setTimeout( function () { console.log("b : " + rand/1000); cb.call(q); }, rand ); } );
-q.add( function (cb) { var rand = Math.floor(Math.random() * 1000); setTimeout( function () { console.log("c : " + rand/1000); cb.call(q); }, rand ); } );
-q.add( function (cb) { var rand = Math.floor(Math.random() * 1000); setTimeout( function () { console.log("d : " + rand/1000); cb.call(q); }, rand ); } );
-q.add( function (cb) { var rand = Math.floor(Math.random() * 1000); setTimeout( function () { console.log("e : " + rand/1000); cb.call(q); }, rand ); } );
+var runFakeTask = function (label) {
+    q.add();
+    var rand = Math.floor(Math.random() * 1000);
+    setTimeout(function () {
+        console.log(label + " : " + rand / 1000);
+        q.remove();
+    }, rand );
+};
+
+runFakeTask('a');
+runFakeTask('b');
+runFakeTask('c');
+runFakeTask('d');
+runFakeTask('e');
