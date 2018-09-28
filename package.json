@@ -1,0 +1,23 @@
+{
+  "name": "taskqueue.js",
+  "version": "1.0.1",
+  "description": "A simple micro-utility to track the completion of asynchronous javascript tasks",
+  "main": "taskQueue.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evitolins/taskQueue.js.git"
+  },
+  "keywords": [
+    "async",
+    "queue"
+  ],
+  "author": "Eriks Vitolins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evitolins/taskQueue.js/issues"
+  },
+  "homepage": "https://github.com/evitolins/taskQueue.js#readme"
+}
