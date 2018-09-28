@@ -1,5 +1,5 @@
 {
-  "name": "taskqueue.js",
+  "name": "@evitolins/taskqueue.js",
   "version": "1.0.1",
   "description": "A simple micro-utility to track the completion of asynchronous javascript tasks",
   "main": "taskQueue.js",
