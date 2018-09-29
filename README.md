@@ -14,18 +14,24 @@ This utility makes it easy to track the progress of multiple tasks and runs help
 
 
 ## Installation
-**Basic**
+**Download**
 : Simply download and source the file `taskQueue.js`.
 
 ```html
 <script src="/js/taskQueue.js"></script>
 ```
 
+**npm**
+
+```bash
+npm install @evitolins/taskqueue.js
+```
+
 **Bower**
 
 ```bash
 bower install git://github.com/evitolins/taskQueue.js
-```   
+```
 
 ## Getting started
 
